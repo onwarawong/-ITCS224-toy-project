@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Booking Cancelled</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>Booking Cancelled</h1>
+        <p>Your booking has been cancelled.</p>
+        <p>Reference: {{ booking.ref }}</p>
+        <p>Name: {{ booking.name }}</p>
+        <a href="/">Back to Home</a>
+    </div>
+</body>
+</html>

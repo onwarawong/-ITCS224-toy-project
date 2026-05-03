@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Available Rooms</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>Available Rooms</h1>
+        <p>Check-in: {{ checkin }}, Check-out: {{ checkout }}</p>
+        {% if available %}
+        <ul>
+            {% for room_type, data in available.items() %}
+            <li>
+                <h2>{{ room_type }}</h2>
+                <p>Price per night: ${{ data.price }}</p>
+                <a href="{{ url_for('book', room_type=room_type, checkin=checkin, checkout=checkout) }}">Book Now</a>
+            </li>
+            {% endfor %}
+        </ul>
+        {% else %}
+        <p>No rooms available for these dates.</p>
+        {% endif %}
+        <a href="/">Back to Search</a>
+    </div>
+</body>
+</html>
